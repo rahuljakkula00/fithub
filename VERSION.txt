@@ -1,0 +1,2 @@
+FitLock AI Web Prototype
+Version 3.0 - Slide onboarding + FitPoints + beginner safety UX

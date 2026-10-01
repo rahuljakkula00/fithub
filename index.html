@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitLock AI — Beginner Fitness Planner</title>
+  <meta name="description" content="Beginner-friendly fitness, workout, hydration, diet and points planner.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">FitLock <span>AI</span></div>
+  <nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#workout">Workout</a>
+    <a href="#diet">Diet</a>
+    <a href="#hydration">Water</a>
+    <a href="#assistant">AI Guide</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <p class="eyebrow">BEGINNER FRIENDLY • WEB PROTOTYPE</p>
+      <h1>Your simple fitness companion.</h1>
+      <p>Get a beginner workout plan, exercise guidance, food ideas, hydration tracking, estimated expenses and FitPoints in one place.</p>
+      <a class="primary-btn" href="#profile">Create my plan</a>
+    </div>
+    <div class="hero-card">
+      <div class="hero-stat"><b>💧</b><span>Hydration</span></div>
+      <div class="hero-stat"><b>🏋️</b><span>Workout</span></div>
+      <div class="hero-stat"><b>🥗</b><span>Food ideas</span></div>
+      <div class="hero-stat"><b>⭐</b><span>FitPoints</span></div>
+    </div>
+  </section>
+
+  <!-- SLIDE ONBOARDING -->
+  <section id="profile" class="section onboarding-section">
+    <div class="section-heading">
+      <p class="eyebrow">STEP-BY-STEP SETUP</p>
+      <h2>Let's build your plan</h2>
+      <p>One question at a time. You can go back and change anything.</p>
+    </div>
+
+    <div class="onboarding-card">
+      <div class="progress-wrap">
+        <div id="progressText">Step 1 of 8</div>
+        <div class="progress-track"><div id="progressBar"></div></div>
+        <div id="progressDots" class="progress-dots"></div>
+      </div>
+
+      <form id="onboardingForm">
+        <div class="slide active" data-step="0">
+          <div class="slide-icon">👋</div>
+          <h3>What should we call you?</h3>
+          <p class="slide-help">Your name will be shown on your dashboard.</p>
+          <input id="name" type="text" placeholder="Enter your name" autocomplete="name" required>
+        </div>
+
+        <div class="slide" data-step="1">
+          <div class="slide-icon">🎂</div>
+          <h3>How old are you?</h3>
+          <p class="slide-help">This helps us keep the plan appropriate for your age.</p>
+          <input id="age" type="number" min="13" max="100" placeholder="Age" required>
+          <small>For users under 18, use fitness and nutrition guidance with a parent/guardian or qualified professional. Avoid restrictive dieting.</small>
+        </div>
+
+        <div class="slide" data-step="2">
+          <div class="slide-icon">⚖️</div>
+          <h3>What is your weight?</h3>
+          <p class="slide-help">Used only for general hydration/activity estimates.</p>
+          <div class="unit-input"><input id="weight" type="number" min="25" max="300" step="0.1" placeholder="Weight"><span>kg</span></div>
+        </div>
+
+        <div class="slide" data-step="3">
+          <div class="slide-icon">📏</div>
+          <h3>What is your height?</h3>
+          <p class="slide-help">This is optional for the prototype's general planning.</p>
+          <div class="unit-input"><input id="height" type="number" min="100" max="230" step="0.1" placeholder="Height"><span>cm</span></div>
+        </div>
+
+        <div class="slide" data-step="4">
+          <div class="slide-icon">🎯</div>
+          <h3>What is your main goal?</h3>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="goal" value="General fitness" checked><span>🌱<b>General fitness</b><small>Move & feel better</small></span></label>
+            <label class="choice"><input type="radio" name="goal" value="Build strength"><span>💪<b>Build strength</b><small>Get stronger safely</small></span></label>
+            <label class="choice"><input type="radio" name="goal" value="Improve endurance"><span>🏃<b>Endurance</b><small>Improve stamina</small></span></label>
+            <label class="choice"><input type="radio" name="goal" value="Maintain fitness"><span>⚡<b>Maintain</b><small>Stay consistent</small></span></label>
+          </div>
+        </div>
+
+        <div class="slide" data-step="5">
+          <div class="slide-icon">🥗</div>
+          <h3>What type of food do you prefer?</h3>
+          <div class="choice-grid two">
+            <label class="choice"><input type="radio" name="dietType" value="Vegetarian" checked><span>🥦<b>Vegetarian</b><small>Veg meals</small></span></label>
+            <label class="choice"><input type="radio" name="dietType" value="Non-vegetarian"><span>🍗<b>Non-vegetarian</b><small>Includes eggs/meat</small></span></label>
+            <label class="choice"><input type="radio" name="dietType" value="Vegan"><span>🌿<b>Vegan</b><small>Plant-based</small></span></label>
+            <label class="choice"><input type="radio" name="dietType" value="Flexible"><span>🍽️<b>Flexible</b><small>Mixed options</small></span></label>
+          </div>
+        </div>
+
+        <div class="slide" data-step="6">
+          <div class="slide-icon">🚶</div>
+          <h3>How active are you usually?</h3>
+          <div class="choice-grid">
+            <label class="choice"><input type="radio" name="activity" value="1.3"><span>🪑<b>Low</b><small>Mostly sitting</small></span></label>
+            <label class="choice"><input type="radio" name="activity" value="1.45" checked><span>🚶<b>Light</b><small>Some walking</small></span></label>
+            <label class="choice"><input type="radio" name="activity" value="1.6"><span>🏃<b>Moderate</b><small>Regular activity</small></span></label>
+            <label class="choice"><input type="radio" name="activity" value="1.75"><span>🏋️<b>High</b><small>Very active</small></span></label>
+          </div>
+        </div>
+
+        <div class="slide" data-step="7">
+          <div class="slide-icon">💰</div>
+          <h3>What is your monthly fitness budget?</h3>
+          <p class="slide-help">Used to suggest practical food and fitness options.</p>
+          <div class="unit-input"><span>₹</span><input id="budget" type="number" min="0" max="100000" step="100" value="3000" placeholder="Monthly budget"></div>
+        </div>
+
+        <div class="onboarding-actions">
+          <button type="button" class="secondary-btn" id="backBtn">← Back</button>
+          <button type="button" class="primary-btn" id="nextBtn">Continue →</button>
+          <button type="submit" class="primary-btn hidden" id="generateBtn">Generate my plan ✨</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">YOUR DASHBOARD</p>
+      <h2>Hi, <span id="userName">there</span> 👋</h2>
+      <p>Your plan updates from the information you entered.</p>
+    </div>
+    <div class="dashboard-grid">
+      <div class="metric-card"><span>⭐ FitPoints</span><strong id="points">0</strong><small>Keep building your streak</small></div>
+      <div class="metric-card"><span>💧 Water target</span><strong id="waterTarget">—</strong><small>General estimate</small></div>
+      <div class="metric-card"><span>🔥 Activity guide</span><strong id="activityTarget">—</strong><small>Not a medical target</small></div>
+      <div class="metric-card"><span>💰 Monthly budget</span><strong id="budgetView">—</strong><small>Planning estimate</small></div>
+    </div>
+
+    <div class="streak-card">
+      <div><span class="eyebrow">CONSISTENCY</span><h3 id="streakTitle">Start your first day</h3><p>Complete simple tasks to earn FitPoints.</p></div>
+      <div class="streak-number">🔥 <span id="streak">0</span> day</div>
+    </div>
+
+    <div class="tip-box">
+      <b>💡 Beginner tip:</b> Start with comfortable exercise, good technique and rest days. You do not need to exercise intensely every day.
+    </div>
+  </section>
+
+  <!-- WORKOUT -->
+  <section id="workout" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">WORKOUT</p>
+      <h2>Your beginner workout</h2>
+      <p>Use the guide links before trying an exercise. Stop if you feel pain, dizziness or unwell.</p>
+    </div>
+    <div id="workoutList" class="workout-list"></div>
+    <div class="button-row">
+      <button class="secondary-btn" id="addExercise">+ Add exercise</button>
+      <button class="secondary-btn" id="replaceTip">🔄 Give me an alternative</button>
+    </div>
+  </section>
+
+  <!-- EXERCISE GUIDE -->
+  <section id="guides" class="section soft">
+    <div class="section-heading">
+      <p class="eyebrow">VIDEO GUIDES</p>
+      <h2>Learn each exercise</h2>
+      <p>These buttons open YouTube search results so you can choose a trusted tutorial.</p>
+    </div>
+    <div id="guideGrid" class="guide-grid"></div>
+  </section>
+
+  <!-- DIET -->
+  <section id="diet" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">FOOD IDEAS</p>
+      <h2>Simple meal ideas</h2>
+      <p>Balanced, practical suggestions—not a restrictive diet.</p>
+    </div>
+    <div id="dietGrid" class="meal-grid"></div>
+    <div class="expense-card">
+      <div><span class="eyebrow">ESTIMATED MONTHLY FOOD COST</span><h3 id="expense">₹—</h3><p>Approximate only; prices vary by location and food choices.</p></div>
+      <div class="budget-meter"><div id="budgetMeter"></div></div>
+    </div>
+  </section>
+
+  <!-- HYDRATION -->
+  <section id="hydration" class="section soft">
+    <div class="section-heading">
+      <p class="eyebrow">HYDRATION</p>
+      <h2>Track your bottle</h2>
+      <p>Register your usual bottle and tap when you finish it. A photo alone cannot prove how much water was consumed.</p>
+    </div>
+    <div class="hydration-grid">
+      <div class="panel">
+        <h3>Smart bottle setup</h3>
+        <input id="bottlePhoto" type="file" accept="image/*">
+        <div class="unit-input"><input id="bottleCapacity" type="number" min="100" max="5000" value="750"><span>ml</span></div>
+        <button class="primary-btn" id="saveBottle">Save bottle</button>
+        <p id="bottleStatus">No bottle registered.</p>
+      </div>
+      <div class="panel water-panel">
+        <div class="water-ring"><span id="waterDone">0</span><small>ml</small></div>
+        <h3 id="waterPercent">0% complete</h3>
+        <button class="primary-btn" id="drinkBottle">+ I finished my bottle</button>
+        <p>Earn <b>+40 FitPoints</b> per registered bottle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POINTS -->
+  <section id="pointsSection" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">FITPOINTS</p>
+      <h2>Turn consistency into points ⭐</h2>
+      <p>Points are for motivation—not a reward for extreme exercise or food restriction.</p>
+    </div>
+    <div class="points-grid">
+      <div class="point-rule">💧 <b>Finished bottle</b><span>+40</span></div>
+      <div class="point-rule">🏋️ <b>Exercise set</b><span>+20</span></div>
+      <div class="point-rule">🎯 <b>Planned reps</b><span>+50</span></div>
+      <div class="point-rule">🔥 <b>Workout completed</b><span>+100</span></div>
+      <div class="point-rule">🥗 <b>Balanced meal logged</b><span>+30</span></div>
+      <div class="point-rule">📅 <b>7-day consistency</b><span>+200</span></div>
+    </div>
+    <div class="levels">
+      <span>🌱 Beginner 0–499</span>
+      <span>🚀 Active 500–1499</span>
+      <span>💪 Fit 1500–2999</span>
+      <span>🏆 Pro 3000+</span>
+    </div>
+  </section>
+
+  <!-- ASSISTANT -->
+  <section id="assistant" class="section">
+    <div class="section-heading">
+      <p class="eyebrow">AI GUIDE</p>
+      <h2>Ask FitLock AI</h2>
+      <p>This prototype uses a local demo assistant. A real Meta AI/API integration needs a backend and API credentials.</p>
+    </div>
+    <div class="chat-card">
+      <div id="chatMessages" class="chat-messages">
+        <div class="bot-message">Hi! Ask me about exercise form, beginner routines, hydration or simple food ideas.</div>
+      </div>
+      <div class="chat-row">
+        <input id="chatInput" placeholder="Ask a question...">
+        <button class="primary-btn" id="sendChat">Send</button>
+      </div>
+      <div class="quick-questions">
+        <button data-q="How should a beginner start a workout?">Beginner workout</button>
+        <button data-q="How can I stay hydrated?">Hydration</button>
+        <button data-q="Give me a simple vegetarian meal idea.">Food idea</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY -->
+  <section id="privacy" class="section soft">
+    <div class="privacy-card">
+      <h2>🔒 Privacy-first prototype</h2>
+      <p>Your profile, points and tracking data are stored in your browser using localStorage in this prototype. GitHub Pages does not provide a secure private database by itself.</p>
+      <p>For production: use authentication, encrypted transport, secure database rules, minimal data collection and a backend for AI/API keys. Never promise that any online system is impossible to hack.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>FitLock AI • Student project prototype • General wellness information only</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
